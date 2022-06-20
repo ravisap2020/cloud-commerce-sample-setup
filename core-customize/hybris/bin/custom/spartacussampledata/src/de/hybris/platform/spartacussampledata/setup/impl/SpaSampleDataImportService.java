@@ -32,7 +32,9 @@ public class SpaSampleDataImportService extends DefaultAddonSampleDataImportServ
 	private static final String SYNC_CONTENT_CATALOG = "electronics->spa";
 	private static final String STORES_URL = "/stores/";
 
-	private ModelService modelService;
+	//uncomment to avoid build failure
+	//private ModelService modelService;
+	private ModelServicee modelService;
 	private Map<String, String> additionalSampleDataImports;
 
 	@Override
