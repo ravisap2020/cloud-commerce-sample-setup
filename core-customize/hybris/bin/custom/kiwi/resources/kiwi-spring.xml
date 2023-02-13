@@ -29,8 +29,8 @@
 		<property name="flexibleSearchService" ref="flexibleSearchService"/>
 	</bean>
 
-	<alias alias="kiwiDAOService" name="defaultKiwiDAOService"/>
-	<bean id="defaultKiwiDAOService" class="com.acme.infra.demo.servicelayer.impl.DefaultKiwiDAOService"/>
+	<!--<alias alias="kiwiDAOService" name="defaultKiwiDAOService"/>
+	<bean id="defaultKiwiDAOService" class="com.acme.infra.demo.servicelayer.impl.DefaultKiwiDAOService"/>-->
 
 
 </beans>
