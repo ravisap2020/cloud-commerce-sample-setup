@@ -19,9 +19,18 @@
            http://www.springframework.org/schema/aop
            http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <alias alias="kiwiService" name="defaultKiwiService"/>
+<!--    <alias alias="kiwiService" name="defaultKiwiService"/>
     <bean id="defaultKiwiService" class="com.acme.infra.demo.servicelayer.impl.DefaultKiwiService">
         <property name="flexibleSearchService" ref="flexibleSearchService"/>
-    </bean>
+    </bean>-->
+
+	<alias alias="baseSiteService" name="defaultKiwiService"/>
+	<bean id="defaultKiwiService" class="com.acme.infra.demo.servicelayer.impl.DefaultKiwiService" parent="defaultBaseSiteService">
+		<property name="flexibleSearchService" ref="flexibleSearchService"/>
+	</bean>
+
+	<alias alias="kiwiDAOService" name="defaultKiwiDAOService"/>
+	<bean id="defaultKiwiDAOService" class="com.acme.infra.demo.servicelayer.impl.DefaultKiwiDAOService"/>
+
 
 </beans>

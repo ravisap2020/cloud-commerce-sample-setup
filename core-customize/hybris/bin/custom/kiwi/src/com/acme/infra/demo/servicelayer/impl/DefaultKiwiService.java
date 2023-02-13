@@ -1,6 +1,7 @@
 package com.acme.infra.demo.servicelayer.impl;
 
 import com.acme.infra.demo.servicelayer.KiwiService;
+import com.acme.infra.demo.servicelayer.KiwiDAOService;
 
 import java.util.List;
 
@@ -12,14 +13,27 @@ import de.hybris.platform.servicelayer.search.SearchResult;
 import de.hybris.platform.servicelayer.search.FlexibleSearchService;
 
 import com.google.common.collect.ImmutableMap;
+import de.hybris.platform.site.impl.DefaultBaseSiteService;
+import de.hybris.platform.basecommerce.model.site.BaseSiteModel;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
  */
-public class DefaultKiwiService implements KiwiService {
+public class DefaultKiwiService extends DefaultBaseSiteService implements KiwiService {
+
+    private static final Logger LOG = Logger.getLogger(DefaultKiwiService.class);
 
     @Resource
     private FlexibleSearchService flexibleSearchService;
+
+    @Autowired
+    private KiwiDAOService kiwiDAOService;
+
+    public void setKiwiDAOService(KiwiDAOService kiwiDAOService) {
+        this.kiwiDAOService = kiwiDAOService;
+    }
 
     public void setFlexibleSearchService(final FlexibleSearchService flexibleSearchService)
     {
@@ -34,6 +48,13 @@ public class DefaultKiwiService implements KiwiService {
 
         List<InfraDemoItemModel> items = result.getResult();
         return items;
+    }
+
+    @Override
+    public BaseSiteModel getCurrentBaseSite() {
+        LOG.info("Calling getCurrentBaseSite of DefaultKiwiService");
+        kiwiDAOService.testConnection();
+        return super.getCurrentBaseSite();
     }
 
 }

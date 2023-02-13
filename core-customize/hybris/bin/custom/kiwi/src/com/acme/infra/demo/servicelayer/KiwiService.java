@@ -3,6 +3,7 @@ package com.acme.infra.demo.servicelayer;
 import java.util.List;
 
 import com.acme.infra.demo.model.InfraDemoItemModel;
+import de.hybris.platform.site.BaseSiteService;
 
 /**
  * 

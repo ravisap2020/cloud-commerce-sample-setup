@@ -180,8 +180,9 @@
 
 <!-- Sample Extensions -->
     <extension name='spartacussampledata' />
-<!--<extension name='kiwi' />
-    <extension name='tiger'/> -->
+    <extension name='kiwi' />
+    <extension name='tiger'/>
+    <!--<extension name='training'/>-->
 
 <!-- If you want to test Cloud Hot Folders locally download the extensions from https://launchpad.support.sap.com/#/notes/2817992 and uncomment the following -->
     <!--<extension name='azurecloudhotfolder' />
